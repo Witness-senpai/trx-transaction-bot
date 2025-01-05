@@ -1,0 +1,12 @@
+[Unit]
+Description=TRX Transaction Bot
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/home/pi/projects/trx-transaction-bot/trx_bot_start.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
