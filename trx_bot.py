@@ -61,13 +61,13 @@ def get_trx_balance(trx_client: Tron, trx_address: str) -> float:
 def send_trx(
     trx_client: Tron,
     private_key: PrivateKey,
+    amount: float,
     from_addr: str = CONTROLLED_ADDR,
     to_addr: str = TRANSIT_ADDR,
-    amount: float | None = None,
 ):
     normalize_amount = int((amount - TRX_RESERVED_FEE) * 1e6)
     txn = (
-        trx_client.trx.transfer(from_addr, to_addr, 10)
+        trx_client.trx.transfer(from_addr, to_addr, normalize_amount)
         .build()
         .inspect()
         .sign(private_key)
