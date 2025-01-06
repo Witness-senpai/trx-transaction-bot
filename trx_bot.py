@@ -14,16 +14,25 @@ script_dir = Path(__file__).parent.resolve()
 log_format = "<green>{time:YYYY-MM-DD HH:mm:ss zz}</green> | <level>{level: <8}</level> | <yellow>Line {line: >4} ({file}):</yellow> <b>{message}</b>"
 logger.add(script_dir / "script.log", level="INFO", format=log_format, colorize=False, backtrace=True, diagnose=True)
 
+# Address with multisig
 CONTROLLED_ADDR = os.environ["CONTROLLED_ADDR"]
+# Address with full permissions for CONTROLLED_ADDR
 ADMIN_ADDR = os.environ["ADMIN_ADDR"]
+# Address for withdraw from CONTROLLED_ADDR
 TRANSIT_ADDR = os.environ["TRANSIT_ADDR"]
 
+# API key from https://www.trongrid.io/
 TRON_GRID_API_KEY = os.environ["TRON_GRID_API_KEY"]
+# ADMIN_ADDR seed pharase
 ADMIN_MNEMONIC = os.environ["ADMIN_MNEMONIC"] 
 
+# Reserved fee for TRX transactions
 TRX_RESERVED_FEE = 1
+# TRX threshold for withdraw
 TRX_SEND_THRESHOLD = 25
+# Сheck address RTX balance timeout
 LOOP_TIMEOUT = 60
+# Stop bot if reached exceptions limit
 RAISED_LIMIT = int(os.getenv("RAISED_LIMIT", 100000))
 
 # For alerting via telegram bot
