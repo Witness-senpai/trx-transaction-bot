@@ -45,8 +45,10 @@ If you want automatic bot start after rebooting.
 1. Edit `trx_bot.service` and change `ExecStart` for your absolute path to bot script
 2. Change or setup envs in `trx_bot_start.sh`: `WOKING_DIRECTORY` and `VENV_PATH`
 2. Copy .service file to systemd dir: `sudo cp trx_bot.service /etc/systemd/system/`
-3. Enable our service: `sudo systemctl enable trx_bot`
-4. May take restart systemctl daemon: `sudo systemctl daemon-reload`
+3. Restart systemctl daemon: `sudo systemctl daemon-reload`
+4. Enable our service: `sudo systemctl enable trx_bot`
+5. If some problems, try: `sudo systemctl restart trx_bot`
+
 
 Check status and logs: `sudo systemctl status trx_bot`
 
